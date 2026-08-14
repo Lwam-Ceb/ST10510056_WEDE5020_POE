@@ -48,7 +48,6 @@ The website currently contains:
 * enquiry.html
 * products.html
 * services.html
-* repairs.html
 * support.html
 
 - - -
