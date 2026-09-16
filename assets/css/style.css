@@ -1,0 +1,365 @@
+/* ========================================= */
+/* 1. BASE STYLES & RESET                    */
+/* ========================================= */
+
+/* Define CSS Custom Properties (Variables) */
+:root {
+  /* Colours - Based on your proposal */
+  --clr-primary: #0A1F44;       /* Deep Navy */
+  --clr-secondary: #00A9FF;     /* Electric Blue */
+  --clr-accent: #FFC107;        /* Sunshine Yellow */
+  --clr-neutral-dark: #2C3E50;  /* Dark Charcoal */
+  --clr-neutral-medium: #7F8C8D;/* Light Grey / Muted Text */
+  --clr-neutral-light: #F4F7F6; /* Light Grey Background */
+  --clr-white: #FFFFFF;
+  
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  
+  /* Other */
+  --border-radius: 12px;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --transition-speed: 0.3s;
+}
+
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* 16px default */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--clr-neutral-dark);
+  background-color: var(--clr-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ========================================= */
+/* 2. TYPOGRAPHY                            */
+/* ========================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700; /* Poppins Bold */
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: var(--clr-primary);
+}
+
+h1 { font-size: 2.5rem; } /* 40px */
+h2 { font-size: 2rem; }   /* 32px */
+h3 { font-size: 1.5rem; } /* 24px */
+h4 { font-size: 1.25rem; }/* 20px */
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--clr-neutral-medium);
+}
+
+/* ========================================= */
+/* 3. LAYOUT & COMPONENTS                   */
+/* ========================================= */
+
+/* Utility Class for Centering Content */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Header & Navigation --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  padding: var(--space-md) 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-white);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.main-nav a {
+  color: var(--clr-white);
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+  color: var(--clr-secondary);
+}
+
+/* --- Hero Section --- */
+.hero {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--clr-white);
+  font-size: 3rem;
+}
+
+.hero p {
+  color: var(--clr-neutral-light);
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 0 auto var(--space-lg);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600; /* Poppins SemiBold */
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--clr-secondary);
+  color: var(--clr-white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: transparent;
+  border-color: var(--clr-secondary);
+  color: var(--clr-secondary);
+}
+
+.btn-accent {
+  background-color: var(--clr-accent);
+  color: var(--clr-primary);
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background-color: transparent;
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+/* --- Card Component --- */
+.card {
+  background-color: var(--clr-white);
+  border: 1px solid #E0E0E0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: var(--space-lg);
+}
+
+.card-content h3 {
+  margin-top: 0;
+}
+
+/* --- Grid Layouts --- */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+  padding: var(--space-xl) 0;
+}
+
+/* Default: Mobile (1 column) */
+.grid-cols-1 { grid-template-columns: 1fr; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* --- Section Styling --- */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+.section-alt {
+  background-color: var(--clr-neutral-light);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* --- Footer --- */
+.site-footer {
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral-light);
+  padding: var(--space-xl) 0 var(--space-lg);
+}
+
+.site-footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-xl);
+}
+
+.footer-col h4 {
+  color: var(--clr-white);
+  margin-bottom: var(--space-md);
+}
+
+.footer-col ul li {
+  margin-bottom: var(--space-sm);
+}
+
+.footer-col a {
+  color: var(--clr-neutral-light);
+  transition: color var(--transition-speed) ease;
+}
+
+.footer-col a:hover {
+  color: var(--clr-secondary);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+}
+
+/* ========================================= */
+/* 4. RESPONSIVE DESIGN                      */
+/* ========================================= */
+
+/* --- Tablet Breakpoint (min-width: 768px) --- */
+@media (min-width: 768px) {
+  /* Adjust grid columns for tablet */
+  .grid-cols-2-md { grid-template-columns: repeat(2, 1fr); }
+  
+  /* Adjust typography */
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+}
+
+/* --- Desktop Breakpoint (min-width: 1024px) --- */
+@media (min-width: 1024px) {
+  /* Adjust grid columns for desktop */
+  .grid-cols-3-lg { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-4-lg { grid-template-columns: repeat(4, 1fr); }
+  
+  /* Adjust typography */
+  h1 { font-size: 3.5rem; }
+  
+  /* Hero section */
+  .hero { padding: 8rem 0; }
+}
+
+/* ========================================= */
+/* 5. RESPONSIVE NAVIGATION (MOBILE)        */
+/* ========================================= */
+
+/* Hamburger menu icon - hidden by default on desktop */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--clr-white);
+  font-size: 1.5rem;
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .main-nav {
+    display: none; /* Hide navigation by default on mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--clr-primary);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .main-nav.active {
+    display: block; /* Show nav when active */
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+}
