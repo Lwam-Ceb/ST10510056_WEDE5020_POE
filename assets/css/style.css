@@ -1,12 +1,12 @@
 /* ========================================= */
-/* 1. GOOGLE FONTS & BASE RESET              */
+/*    GOOGLE FONTS & BASE RESET              */
 /* ========================================= */
 
-/* Importing Poppins and Inter as per your proposal */
+/* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
 
 :root {
-    /* Colours from your proposal */
+    /* Colours from my proposal doc */
     --clr-primary: #0A1F44;      /* Deep Navy */
     --clr-secondary: #00A9FF;    /* Electric Blue */
     --clr-accent: #FFC107;       /* Sunshine Yellow */
@@ -14,11 +14,11 @@
     --clr-light: #F4F7F6;        /* Light Grey */
     --clr-white: #FFFFFF;
     
-    /* Fonts */
+    
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
     
-    /* Spacing & Borders */
+    
     --space-sm: 1rem;
     --space-md: 2rem;
     --space-lg: 4rem;
@@ -58,7 +58,7 @@ h1, h2, h3, h4 {
 }
 
 /* ========================================= */
-/* 2. NAVIGATION & HEADER                    */
+/*    NAVIGATION & HEADER                    */
 /* ========================================= */
 
 header {
@@ -84,9 +84,9 @@ header a:hover {
     color: var(--clr-secondary);
     border-bottom: 2px solid var(--clr-secondary);
 }
-
+ 
 /* ========================================= */
-/* 3. HERO SECTION                           */
+/*    HERO SECTION                           */
 /* ========================================= */
 
 .hero {
@@ -101,7 +101,7 @@ header a:hover {
 }
 
 .hero img {
-    max-width: 180px; /* Keeps the logo from being too huge */
+    max-width: 180px; 
 }
 
 .hero h1.eyebrow {
@@ -124,6 +124,7 @@ header a:hover {
     max-width: 600px;
     font-size: 1.1rem;
     margin-bottom: 2rem;
+    text-align: center; 
 }
 
 .hero-buttons {
@@ -160,14 +161,14 @@ header a:hover {
 }
 
 /* ========================================= */
-/* 4. SECTIONS & GRIDS (Quick Links, News, etc.) */
+/* 4. SECTIONS & GRIDS                       */
 /* ========================================= */
 
 section {
     padding: var(--space-lg) 5%;
 }
 
-/* Quick Links */
+
 .quick-links {
     display: flex;
     flex-wrap: wrap;
@@ -206,7 +207,7 @@ section {
     color: #666;
 }
 
-/* Section Headings */
+
 .section-heading {
     display: flex;
     justify-content: space-between;
@@ -232,7 +233,7 @@ section {
     color: var(--clr-primary);
 }
 
-/* Grid Layouts for Cards */
+
 .news-grid, .product-grid, .service-grid, .values-grid, .audience-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -292,7 +293,7 @@ section {
     color: var(--clr-primary);
 }
 
-/* Service Cards Specific */
+
 .service-card span {
     display: block;
     font-family: var(--font-heading);
@@ -302,7 +303,7 @@ section {
     margin-bottom: 0.5rem;
 }
 
-/* Why JingoTech Section */
+
 .why-jingotech {
     background-color: var(--clr-primary);
     color: var(--clr-white);
@@ -333,7 +334,7 @@ section {
 }
 
 /* ========================================= */
-/* 5. PAGE BANNERS & FORMS (Inner Pages)     */
+/* 5. PAGE BANNERS & FORMS                   */
 /* ========================================= */
 
 .page-banner {
@@ -405,7 +406,7 @@ button[type="submit"]:hover {
     background-color: var(--clr-primary);
 }
 
-/* FAQ Specific */
+/* FAQ */
 .faq-section {
     max-width: 800px;
     margin: 0 auto;
@@ -533,7 +534,7 @@ footer {
 }
 
 /* ========================================= */
-/* 7. RESPONSIVE DESIGN (Media Queries)      */
+/* 7. RESPONSIVE DESIGN                      */
 /* ========================================= */
 
 /* Tablet Breakpoint */
