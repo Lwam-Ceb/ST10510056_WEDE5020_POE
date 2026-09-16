@@ -12,7 +12,7 @@
     --clr-accent: #FFC107;       /* Sunshine Yellow */
     --clr-dark: #2C3E50;         /* Dark Charcoal */
     --clr-light: #F4F7F6;        /* Light Grey */
-    --clr-white: #FFFFFF;
+    --clr-white: #FFFFFF;        /* White */
     
     
     --font-heading: 'Poppins', sans-serif;
@@ -100,6 +100,14 @@ header a:hover {
     gap: 2rem;
 }
 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
 .hero img {
     max-width: 180px; 
 }
@@ -124,7 +132,7 @@ header a:hover {
     max-width: 600px;
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    text-align: center; 
+    text-align: center;
 }
 
 .hero-buttons {
@@ -434,7 +442,6 @@ button[type="submit"]:hover {
     font-weight: 600;
 }
 
-/* Contact & About Specifics */
 .contact-information, .company-history, .mission-vision {
     display: flex;
     flex-wrap: wrap;
