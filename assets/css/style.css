@@ -78,6 +78,13 @@ header a {
     font-weight: 500;
     font-size: 0.95rem;
     padding: 0.5rem;
+    border-bottom: 2px solid transparent; 
+    transition: all 0.3s ease;
+}
+
+header a:hover {
+    color: var(--clr-secondary);
+    border-bottom-color: var(--clr-secondary); 
 }
 
 header a:hover {
@@ -91,6 +98,12 @@ header a:hover {
 
 .hero {
     background-color: var(--clr-primary);
+    
+    background-image: linear-gradient(rgba(10, 31, 68, 0.92), rgba(10, 31, 68, 0.92)), url('../images/jingotechbanner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     color: var(--clr-white);
     padding: 6rem 5%;
     text-align: center;
