@@ -591,4 +591,74 @@ footer {
     .contact-information, .company-history, .mission-vision {
         flex-direction: column;
     }
+/* ========================================= */
+/* 8. MOBILE NAVIGATION (PURE CSS)           */
+/* ========================================= */
+
+/* Hide the checkbox by default */
+.menu-toggle {
+    display: none;
+}
+
+/* Hamburger Icon Styling  */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--clr-white);
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* Mobile-Specific Styles */
+@media (max-width: 768px) {
+    /* 1. Header becomes a row */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+
+    /* 2. Show the hamburger label */
+    .hamburger {
+        display: flex;
+    }
+
+    /* 3. Hide the nav links by default */
+    .main-nav {
+        display: none; 
+        position: absolute;
+        top: 100%; /* Drops down right below the header */
+        left: 0;
+        width: 100%;
+        background-color: var(--clr-primary);
+        flex-direction: column;
+        padding: 1.5rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    /* 4. When the checkbox is checked, show the menu */
+    .menu-toggle:checked ~ .main-nav {
+        display: flex;
+    }
+
+    /* 5. Style the mobile links */
+    .main-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: none; 
+        font-size: 1.1rem;
+    }
+}
 }
