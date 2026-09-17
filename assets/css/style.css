@@ -600,7 +600,7 @@ footer {
     display: none;
 }
 
-/* Hamburger Icon Styling (Hidden on Desktop) */
+/* Hamburger Icon Styling  */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -647,7 +647,7 @@ footer {
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
 
-    /* 4. THE MAGIC: When the checkbox is checked, show the menu */
+    /* 4. When the checkbox is checked, show the menu */
     .menu-toggle:checked ~ .main-nav {
         display: flex;
     }
