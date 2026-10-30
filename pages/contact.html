@@ -84,6 +84,27 @@
             </article>
         </section>
 
+
+                <section class="enquiry-section">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Full Name</label>
+                    <input type="text" id="contactName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email Address</label>
+                    <input type="email" id="contactEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" rows="5" placeholder="How can we help?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div id="contactResponse" class="response-message" style="display: none;"></div>
+        </section>
+
         <!-- Support Link -->
         <section class="contact-support">
             <h2>Need technical help?</h2>
@@ -145,6 +166,9 @@
                 <a href="#">WhatsApp</a>
             </div>
         </div>
+
+
+        
     </footer>
 
 </body>
