@@ -1,46 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Script loaded successfully.");
 
     // ==========================================
-    // 1. DYNAMIC PRODUCTS & SEARCH (Products Page)
+    // 1. SEARCH & FILTER LOGIC (Products Page)
     // ==========================================
-    const products = [
-        { id: 1, name: "JingoTech Gaming PC", category: "Gaming PC", img: "../assets/images/GamingPC.jpg", desc: "High-performance computer for gaming." },
-        { id: 2, name: "JingoTech Office PC", category: "Office PC", img: "../assets/images/AMD_RYZEN_WORKPC.jpg", desc: "Reliable performance for work and study." },
-        { id: 3, name: "Computer Components", category: "Components", img: "../assets/images/MSI_GEFORCE_RTX5070.jpg", desc: "Upgrade your system with quality hardware." },
-        { id: 4, name: "Performance Upgrades", category: "Upgrades", img: "../assets/images/GraphicsCard.jpg", desc: "Give your existing computer a new lease on life." }
-    ];
-
-    const productGrid = document.getElementById('dynamic-product-grid');
     const searchInput = document.getElementById('productSearch');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
 
-    function displayProducts(productsToDisplay) {
-        if (!productGrid) return;
-        productGrid.innerHTML = ''; 
+    // Only run if we are on the products page
+    if (searchInput && filterBtns.length > 0) {
+        
+        function filterProducts() {
+            const term = searchInput.value.toLowerCase();
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
 
-        productsToDisplay.forEach(product => {
-            const card = document.createElement('article');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <img src="${product.img}" alt="${product.name}">
-                <h1>${product.category}</h1>
-                <h3>${product.name}</h3>
-                <p>${product.desc}</p>
-                <a href="enquiry.html">Enquire Now →</a>
-            `;
-            productGrid.appendChild(card);
-        });
-    }
+            productCards.forEach(card => {
+                // Get text inside the card for search
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                // Get the data-category attribute for filtering
+                const category = card.getAttribute('data-category');
 
-    if (productGrid) {
-        displayProducts(products); // Load all initially
+                const matchesSearch = title.includes(term) || desc.includes(term);
+                const matchesFilter = activeFilter === 'all' || category === activeFilter;
 
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            const filtered = products.filter(p => 
-                p.name.toLowerCase().includes(term) || 
-                p.category.toLowerCase().includes(term)
-            );
-            displayProducts(filtered);
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'block'; // Show it
+                } else {
+                    card.style.display = 'none'; // Hide it
+                }
+            });
+        }
+
+        // Listen for typing in the search bar
+        searchInput.addEventListener('input', filterProducts);
+
+        // Listen for clicks on filter buttons
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // 1. Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // 2. Add active class to the clicked button
+                e.target.classList.add('active');
+                // 3. Run the filter
+                filterProducts();
+            });
         });
     }
 
@@ -50,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const enquiryForm = document.getElementById('enquiryForm');
     if (enquiryForm) {
         enquiryForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop page reload (AJAX)
+            e.preventDefault(); 
             const service = document.getElementById('service').value;
             const btn = this.querySelector('button');
             const responseBox = document.getElementById('enquiryResponse');
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = "Processing...";
             btn.disabled = true;
 
-            setTimeout(() => { // Simulate server delay
+            setTimeout(() => { 
                 let cost = "Varies", avail = "Contact us";
                 if (service === 'repair') { cost = "R500 - R1500"; avail = "Next 2 business days"; }
                 if (service === 'custom-build') { cost = "R5000+"; avail = "3-5 business days"; }
@@ -69,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>Enquiry Processed</h3>
                     <p><strong>Estimated Cost:</strong> ${cost}</p>
                     <p><strong>Availability:</strong> ${avail}</p>
+                    <p>We will be in touch shortly!</p>
                 `;
                 responseBox.scrollIntoView({ behavior: 'smooth' });
             }, 1000);
@@ -81,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop page reload
+            e.preventDefault(); 
             const name = document.getElementById('contactName').value;
             const email = document.getElementById('contactEmail').value;
             const message = document.getElementById('contactMessage').value;
@@ -92,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             setTimeout(() => {
-                // Mailto link to simulate emailing
                 const mailto = `mailto:jingotech@gmail.com?subject=Contact from ${name}&body=${message}%0D%0AFrom: ${email}`;
                 window.location.href = mailto;
 

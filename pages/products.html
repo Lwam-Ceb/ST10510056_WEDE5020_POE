@@ -52,42 +52,64 @@
                 Explore our range of computers, components 
                 and networking equipment.
             </p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="productSearch" placeholder="Search for PCs, components..." class="search-input">
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="Gaming PC">Gaming PCs</button>
+                <button class="filter-btn" data-filter="Office PC">Office PCs</button>
+                <button class="filter-btn" data-filter="Components">Components</button>
+                <button class="filter-btn" data-filter="Upgrades">Upgrades</button>
+            </div>
         </section>
 
-        <!-- Products Grid -->
+        <!-- Products Grid (Static HTML) -->
         <section class="featured-products">
-            <div class="product-grid">
+            <div class="product-grid" id="product-grid-container">
 
-                <article class="product-card">
-                    <img src="../assets/images/GamingPC.jpg" width="300" height="200" alt="Gaming PC">
+                <!-- Product 1 -->
+                <article class="product-card" data-category="Gaming PC">
+                    <img src="../assets/images/GamingPC.jpg" alt="JingoTech Gaming PC">
                     <h1>GAMING PC</h1>
                     <h3>JingoTech Gaming PC</h3>
                     <p>High-performance computer for gaming and entertainment.</p>
-                    <a href="enquiry.html">Enquire Now →</a>
+                    <span class="price">R 15,999</span>
+                    <a href="enquiry.html" class="btn-enquire">Enquire Now →</a>
                 </article>
 
-                <article class="product-card">
-                    <img src="../assets/images/AMD_RYZEN_WORKPC.jpg" width="300" height="200" alt="Office computer">
+                <!-- Product 2 -->
+                <article class="product-card" data-category="Office PC">
+                    <img src="../assets/images/AMD_RYZEN_WORKPC.jpg" alt="JingoTech Office PC">
                     <h1>OFFICE PC</h1>
                     <h3>JingoTech Office PC</h3>
                     <p>Reliable performance for work, study and everyday use.</p>
-                    <a href="enquiry.html">Enquire Now →</a>
+                    <span class="price">R 8,499</span>
+                    <a href="enquiry.html" class="btn-enquire">Enquire Now →</a>
                 </article>
 
-                <article class="product-card">
-                    <img src="../assets/images/MSI_GEFORCE_RTX5070.jpg" width="300" height="200" alt="Computer components">
+                <!-- Product 3 -->
+                <article class="product-card" data-category="Components">
+                    <img src="../assets/images/MSI_GEFORCE_RTX5070.jpg" alt="Computer Components">
                     <h1>COMPONENTS</h1>
-                    <h3>Computer Components</h3>
-                    <p>Upgrade your system with quality computer hardware.</p>
-                    <a href="enquiry.html">Enquire Now →</a>
+                    <h3>NVIDIA RTX 5070</h3>
+                    <p>Upgrade your system with top-tier graphics hardware.</p>
+                    <span class="price">R 12,499</span>
+                    <a href="enquiry.html" class="btn-enquire">Enquire Now →</a>
                 </article>
 
-                <article class="product-card">
-                    <img src="../assets/images/GraphicsCard.jpg" width="300" height="200" alt="Graphics card">
+                <!-- Product 4 -->
+                <article class="product-card" data-category="Upgrades">
+                    <img src="../assets/images/GraphicsCard.jpg" alt="Performance Upgrades">
                     <h1>UPGRADES</h1>
                     <h3>Performance Upgrades</h3>
                     <p>Give your existing computer a new lease on life.</p>
-                    <a href="enquiry.html">Enquire Now →</a>
+                    <span class="price">From R 1,500</span>
+                    <a href="enquiry.html" class="btn-enquire">Enquire Now →</a>
                 </article>
 
             </div>
@@ -145,6 +167,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="../assets/css/script.js" defer></script>
 
 </body>
 </html>

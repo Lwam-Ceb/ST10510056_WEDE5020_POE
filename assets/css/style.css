@@ -228,6 +228,27 @@ section {
     color: #666;
 }
 
+.news-grid, .product-grid, .service-grid, .values-grid, .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.news-card, .product-card, .service-card, .values-grid article, .audience-grid article {
+    background: var(--clr-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+    
+
+    max-width: 400px; 
+    width: 100%;
+    margin: 0 auto; 
+}
 
 .section-heading {
     display: flex;
@@ -684,4 +705,38 @@ footer {
     background-color: var(--clr-light);
     border-left: 5px solid var(--clr-secondary);
     border-radius: var(--radius);
+}
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    background-color: transparent;
+    color: var(--clr-primary);
+    border: 2px solid var(--clr-secondary);
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+}
+
+.price {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+    margin: 1rem 0;
 }
