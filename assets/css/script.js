@@ -111,5 +111,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         });
     }
+    
+    // ==========================================
+    // 4. GALLERY LIGHTBOX
+    // ==========================================
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close-lightbox');
+    // Target all images inside the product cards
+    const triggers = document.querySelectorAll('.product-card img');
+
+    if (lightbox && triggers.length > 0) {
+        triggers.forEach(img => {
+            // Make it look clickable
+            img.style.cursor = 'pointer'; 
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = this.src; // Use the same image source
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        // Close if user clicks outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    }
 
 });
