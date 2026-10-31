@@ -94,6 +94,24 @@ The website currently contains the following HTML pages:
 
 - - -
 
+### [Part 3] - October 2026
+**Implementation of Part 2 Feedback:**
+* Added a contact form to the `contact.html` page to ensure a cohesive user experience.
+
+**JavaScript Functionality (Dynamic & Interactive):**
+* **Dynamic Search & Filter:** Implemented JavaScript to dynamically filter product cards by category and search keywords on the `products.html` page.
+* **AJAX Form Submission:** Simulated asynchronous form submission using `setTimeout` and `event.preventDefault()`. 
+* **Enquiry Processing:** The enquiry form dynamically calculates and displays estimated costs and availability based on the user's selected service.
+* **Contact Email Integration:** The contact form compiles the user's input into a `mailto` link to simulate sending an email to the organization.
+* **Gallery Lightbox:** Implemented a functional CSS and JavaScript lightbox to view enlarged product images.
+
+**Search Engine Optimization (SEO):**
+* Created `robots.txt` and `sitemap.xml` in the root directory.
+* Added unique Title Tags, Meta Descriptions, and Meta Keywords to all HTML pages.
+* Ensured all images have descriptive `alt` text.
+
+- - -
+
 ## References
 
 * Coyier, C., 2026. *The “Checkbox Hack” (and things you can do with it)*. [Online] Available at: https://css-tricks.com/the-checkbox-hack/ [Accessed 17 September 2026].
