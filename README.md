@@ -17,6 +17,8 @@ The website is designed to display JingoTech's products and services while provi
 ## Technology Stack:
 * HTML5: Semantic structure for all web pages.
 * CSS3: External stylesheet, Flexbox, CSS Grid, Custom Properties (Variables), Media Queries, and Pseudo-classes.
+* JavaScript: DOM manipulation, asynchronous operations (Promises), and interactive UI elements.
+* EmailJS: Third-party service for handling form submissions and sending emails without a backend server.
 * Git & GitHub: Version control and deployment via GitHub Pages.
 
 - - -
@@ -34,6 +36,7 @@ The website currently contains the following HTML pages:
 
 **Assets:**
 * `assets/css/style.css`
+* `assets/css/script.js` 
 * `assets/images/`
 
 - - -
@@ -45,21 +48,21 @@ The website currently contains the following HTML pages:
 * Displays features of the company (Information, Products, Services).
 
 ### Products and Services
-* Displays available technology products.
+* Displays available technology products with dynamic search and filter functionality.
 * Provides information about services.
 
 ### Enquiries and Support
-* Allows customers to make enquiries about products and services.
-* Provides access to customer support and repair information.
+* Allows customers to make real-time service enquiries with automated cost and availability calculations.
+* Fully functional email integration using EmailJS.
 
 ### Company Information
 * Provides information about JingoTech's Brand and History.
 
 ### Navigation
 * Provides clear navigation between the different pages of the website.
-* The website is organised into separate pages for ease of use.
+* Sticky header with a pure CSS hamburger menu for mobile devices.
 
-### Google Map Intergration
+### Google Map Integration
 * Embedded map on the contact page for physical location.
 
 - - -
@@ -74,41 +77,40 @@ The website currently contains the following HTML pages:
 * References: Corrected all Harvard referencing formatting to adhere to academic standards.
 
 **CSS Styling for Desktop Solution:**
-* External Stylesheet: Created `assets/css/style.css` and linked it to all 7 HTML pages
+* External Stylesheet: Created `assets/css/style.css` and linked it to all 7 HTML pages.
 * Typography: Imported Google Fonts (Poppins for headings, Inter for body text). Applied consistent font sizes, weights, line heights, and letter-spacing.
 * Layout Structure: Utilized CSS Grid and Flexbox to create complex layouts, including the 4-column product grids and the 3-column news sections.
 * Decoration & Colour: Applied CSS variables for the Deep Navy, Electric Blue, and Sunshine Yellow colour palette. Added border-radius, box-shadows, and card styling.
 * Pseudo-Classes: Implemented `:hover`, `:focus`, and `:active` states for all interactive elements (buttons, nav links, product cards) to enhance user experience.
 
 **Responsive Design:**
-* Media Queries / Breakpoints: Added specific breakpoints at `1024px` (Tablet) and `768px`.
+* Media Queries / Breakpoints: Added specific breakpoints at `1024px` (Tablet) and `768px` (Mobile).
 * Responsive Layout: Grids automatically adjust from 4 columns to 2 columns on tablets, and 1 column on mobile phones.
 * Responsive Typography: Font sizes scale down appropriately using relative units for smaller screens.
-* Responsive Navigation:* Implemented a pure CSS hamburger menu for mobile users to save screen space.
-* Responsive Images: Applied `max-width: 100%` and `object-fit: cover` to ensure image breaking with the scales of layouts.
+* Responsive Navigation: Implemented a pure CSS hamburger menu for mobile users to save screen space.
+* Responsive Images: Applied `max-width: 100%` and `object-fit: cover` to ensure images scale properly within layouts.
 
 **GitHub & Documentation:**
 * Multiple descriptive Git commits made throughout the development process.
 * Readme updated with the comprehensive changelog and references.
 
-
 - - -
 
 ### [Part 3] - October 2026
 **Implementation of Part 2 Feedback:**
-* Added a contact form to the `contact.html` page to ensure a cohesive user experience.
+* **Contact Page:** Added a general enquiry contact form to the `contact.html` page to ensure a cohesive user experience across all platforms.
 
 **JavaScript Functionality (Dynamic & Interactive):**
-* **Dynamic Search & Filter:** Implemented JavaScript to dynamically filter product cards by category and search keywords on the `products.html` page.
-* **AJAX Form Submission:** Simulated asynchronous form submission using `setTimeout` and `event.preventDefault()`. 
-* **Enquiry Processing:** The enquiry form dynamically calculates and displays estimated costs and availability based on the user's selected service.
-* **Contact Email Integration:** The contact form compiles the user's input into a `mailto` link to simulate sending an email to the organization.
-* **Gallery Lightbox:** Implemented a functional CSS and JavaScript lightbox to view enlarged product images.
+* **Dynamic Search & Filter:** Implemented JavaScript to dynamically filter product cards by category and live search keywords on the `products.html` page.
+* **AJAX/Asynchronous Form Submission:** Utilized `event.preventDefault()` and the EmailJS API to handle form submissions asynchronously, preventing page reloads and providing a seamless user experience.
+* **Enquiry Processing:** The enquiry form dynamically calculates and displays estimated costs and availability based on the user's selected service before submission.
+* **Email Integration (EmailJS):** Integrated the EmailJS SDK to process form input and send real emails directly to the organization's inbox for both the Enquiry and Contact forms.
+* **Gallery Lightbox:** Implemented a functional CSS and JavaScript lightbox to view enlarged product images on the products page.
 
 **Search Engine Optimization (SEO):**
-* Created `robots.txt` and `sitemap.xml` in the root directory.
+* Created `robots.txt` and `sitemap.xml` in the root directory to instruct search engine crawlers.
 * Added unique Title Tags, Meta Descriptions, and Meta Keywords to all HTML pages.
-* Ensured all images have descriptive `alt` text.
+* Ensured all images have descriptive `alt` text and optimized file names.
 
 - - -
 
@@ -116,7 +118,9 @@ The website currently contains the following HTML pages:
 
 * Coyier, C., 2026. *The “Checkbox Hack” (and things you can do with it)*. [Online] Available at: https://css-tricks.com/the-checkbox-hack/ [Accessed 17 September 2026].
 * Docs, G., 2026. *GitHub Docs*. [Online] Available at: https://docs.github.com/en
+* EmailJS, 2026. *EmailJS Documentation*. [Online] Available at: https://www.emailjs.com/docs/ [Accessed 02 November 2026].
 * mdn, 2026. *Structuring documents*. [Online] Available at: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents [Accessed 11 September 2026].
+* MDN Web Docs, 2026. *Promise*. [Online] Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise [Accessed 02 November 2026].
 * MozillaDeveloperNetwork, 2026. *HTML: HyperText Markup Language*. [Online] Available at: https://developer.mozilla.org/en-US/
 * Nielsen, J., 1994. *10 Usability Heuristics for User Interface Design*. [Online] Available at: https://www.nngroup.com/articles/ten-usability-heuristics/
 * Overflow, S., 2026. *Adding external CSS in an HTML file*. [Online] Available at: https://stackoverflow.com/questions/1947878/adding-external-css-in-an-html-file [Accessed 16 September 2026].
@@ -125,4 +129,5 @@ The website currently contains the following HTML pages:
 * W3Schools, 2026. *CSS Tutorial*. [Online] Available at: https://www.w3schools.com/css/default.asp
 * W3Schools, 2026. *HTML Styles - CSS*. [Online] Available at: https://www.w3schools.com/html/html_css.asp [Accessed 16 September 2026].
 * W3Schools, 2026. *HTML Tutorial*. [Online] Available at: https://www.w3schools.com/html/default.asp
+* W3Schools, 2026. *JavaScript Promises*. [Online] Available at: https://www.w3schools.com/js/js_promise.asp [Accessed 02 November 2026].
 * W3Schools, 2026. *JavaScript Tutorial*. [Online] Available at: https://www.w3schools.com/js/default.asp
