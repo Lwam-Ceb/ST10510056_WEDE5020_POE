@@ -14,6 +14,17 @@ My project is a website made for a fictional company named JingoTech Provider, a
 
 The website is designed to display JingoTech's products and services while providing customers with an easy way to make enquiries, request services and access support. The design follows a sleek, professional aesthetic using a Deep Navy, Electric Blue, and Sunshine Yellow colour palette.
 
+## How to Run Locally
+1. Clone the repository: `git clone https://github.com/Lwam-Ceb/ST10510056_WEDE5020_POE.git`
+2. Open the project folder in Visual Studio Code.
+3. Install the "Live Server" extension in VS Code.
+4. Right-click on `index.html` and select "Open with Live Server". 
+5. The site will open in your browser at `http://127.0.0.1:5500`.
+
+## Live Deployment
+The website is deployed and hosted via GitHub Pages. You can view the live site here:
+* **Live URL:** [https://lwam-ceb.github.io/ST10510056_WEDE5020_POE/](https://lwam-ceb.github.io/ST10510056_WEDE5020_POE/)
+
 ## Technology Stack:
 * HTML5: Semantic structure for all web pages.
 * CSS3: External stylesheet, Flexbox, CSS Grid, Custom Properties (Variables), Media Queries, and Pseudo-classes.
