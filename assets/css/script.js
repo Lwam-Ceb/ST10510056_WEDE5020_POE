@@ -38,6 +38,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 filterProducts();
             });
         });
+        const sortSelect = document.getElementById('productSort');
+        const productGrid = document.getElementById('product-grid-container');
+        
+        // Save the original order of the cards so we can reset it
+        const originalCards = Array.from(productCards);
+
+        if (sortSelect && productGrid) {
+            sortSelect.addEventListener('change', function() {
+                const cardsArray = Array.from(productCards);
+                
+                if (this.value === 'price-low' || this.value === 'price-high') {
+                    cardsArray.sort((a, b) => {
+                        // Extract the numbers from the price span (e.g., "R 15,999" becomes 15999)
+                        const priceA = parseFloat(a.querySelector('.price').innerText.replace(/[^0-9.]/g, ''));
+                        const priceB = parseFloat(b.querySelector('.price').innerText.replace(/[^0-9.]/g, ''));
+                        
+                        if (this.value === 'price-low') return priceA - priceB;
+                        if (this.value === 'price-high') return priceB - priceA;
+                    });
+                    
+                    // Clear the grid and append the sorted cards
+                    productGrid.innerHTML = '';
+                    cardsArray.forEach(card => productGrid.appendChild(card));
+                    
+                } else {
+                    // If "Default" is selected, restore the original order
+                    productGrid.innerHTML = '';
+                    originalCards.forEach(card => productGrid.appendChild(card));
+                }
+            });
+        }
     }
 
     // ==========================================
@@ -150,6 +181,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === lightbox) {
                 lightbox.style.display = 'none';
             }
+        });
+    }
+
+    // ==========================================
+    // 5. FAQ ACCORDION
+    // ==========================================
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    if (faqQuestions.length > 0) {
+        faqQuestions.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const parent = this.parentElement;
+                const answer = this.nextElementSibling;
+                
+                // Toggle active class on the clicked item
+                parent.classList.toggle('active');
+                
+                // Toggle the max-height for the slide effect
+                if (parent.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
         });
     }
 });
