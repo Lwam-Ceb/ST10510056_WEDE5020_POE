@@ -10,6 +10,9 @@
     <link rel="icon" type="image/png" href="../assets/images/Icon.png">
 
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <meta name="description" content="Contact JingoTech Provider for computer repairs, upgrades, or general enquiries. Find our location, phone number, and business hours.">
+    <meta name="keywords" content="contact JingoTech, computer repair Cape Town, tech support contact">
 </head>
 
 <body>
@@ -84,6 +87,30 @@
             </article>
         </section>
 
+
+            <section class="enquiry-section">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Full Name</label>
+                    <!-- Added name="contactName" here -->
+                    <input type="text" id="contactName" name="contactName" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email Address</label>
+                    <!-- Added name="contactEmail" here -->
+                    <input type="email" id="contactEmail" name="contactEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Message</label>
+                    <!-- Added name="contactMessage" here -->
+                    <textarea id="contactMessage" name="contactMessage" rows="5" placeholder="How can we help?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div id="contactResponse" class="response-message" style="display: none;"></div>
+        </section>
+
         <!-- Support Link -->
         <section class="contact-support">
             <h2>Need technical help?</h2>
@@ -145,7 +172,25 @@
                 <a href="#">WhatsApp</a>
             </div>
         </div>
+
+
+        
     </footer>
+
+    <!-- Load the EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
+    
+    <!-- Initialize EmailJS with your Public Key -->
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "bY4mGSRU84Lbs0I2D",
+            });
+        })();
+    </script>
+
+    <!-- Load your custom JavaScript logic -->
+    <script src="../assets/css/script.js" defer></script>
 
 </body>
 </html>

@@ -10,6 +10,9 @@
     <link rel="icon" type="image/png" href="../assets/images/Icon.png">
 
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <meta name="description" content="Book a service or request a quote from JingoTech Provider. Fill out our enquiry form for computer repairs and custom PC builds.">
+    <meta name="keywords" content="book computer repair, PC build quote, JingoTech enquiry">
 </head>
 
 <body>
@@ -53,7 +56,7 @@
 
         <!-- Enquiry Form -->
         <section class="enquiry-section">
-            <form action="#" method="post">
+            <form id="enquiryForm">
 
                 <div class="form-group">
                     <label for="name">Full Name</label>
@@ -100,6 +103,10 @@
 
                 <button type="submit">Submit Enquiry</button>
             </form>
+
+            <div id="enquiryResponse" class="response-message" style="display: none;"></div>
+
+
         </section>
 
     </main>
@@ -154,6 +161,21 @@
             </div>
         </div>
     </footer>
+
+    <!-- 1. Load the EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
+    
+    <!-- 2. Initialize EmailJS with your Public Key -->
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "bY4mGSRU84Lbs0I2D",
+            });
+        })();
+    </script>
+
+    <!-- 3. Load your custom JavaScript logic -->
+    <script src="../assets/css/script.js" defer></script>
 
 </body>
 </html>
