@@ -88,20 +88,23 @@
         </section>
 
 
-                <section class="enquiry-section">
+            <section class="enquiry-section">
             <h2>Send Us a Message</h2>
             <form id="contactForm">
                 <div class="form-group">
                     <label for="contactName">Full Name</label>
-                    <input type="text" id="contactName" placeholder="Enter your name" required>
+                    <!-- Added name="contactName" here -->
+                    <input type="text" id="contactName" name="contactName" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
                     <label for="contactEmail">Email Address</label>
-                    <input type="email" id="contactEmail" placeholder="Enter your email" required>
+                    <!-- Added name="contactEmail" here -->
+                    <input type="email" id="contactEmail" name="contactEmail" placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
                     <label for="contactMessage">Message</label>
-                    <textarea id="contactMessage" rows="5" placeholder="How can we help?" required></textarea>
+                    <!-- Added name="contactMessage" here -->
+                    <textarea id="contactMessage" name="contactMessage" rows="5" placeholder="How can we help?" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
@@ -174,6 +177,19 @@
         
     </footer>
 
+    <!-- Load the EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
+    
+    <!-- Initialize EmailJS with your Public Key -->
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "bY4mGSRU84Lbs0I2D",
+            });
+        })();
+    </script>
+
+    <!-- Load your custom JavaScript logic -->
     <script src="../assets/css/script.js" defer></script>
 
 </body>

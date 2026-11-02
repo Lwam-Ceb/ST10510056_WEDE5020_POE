@@ -8,49 +8,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
 
-    // Only run if we are on the products page
     if (searchInput && filterBtns.length > 0) {
-        
         function filterProducts() {
             const term = searchInput.value.toLowerCase();
             const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
 
             productCards.forEach(card => {
-                // Get text inside the card for search
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const desc = card.querySelector('p').textContent.toLowerCase();
-                // Get the data-category attribute for filtering
                 const category = card.getAttribute('data-category');
 
                 const matchesSearch = title.includes(term) || desc.includes(term);
                 const matchesFilter = activeFilter === 'all' || category === activeFilter;
 
                 if (matchesSearch && matchesFilter) {
-                    card.style.display = 'block'; // Show it
+                    card.style.display = 'block';
                 } else {
-                    card.style.display = 'none'; // Hide it
+                    card.style.display = 'none';
                 }
             });
         }
 
-        // Listen for typing in the search bar
         searchInput.addEventListener('input', filterProducts);
 
-        // Listen for clicks on filter buttons
         filterBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                // 1. Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                // 2. Add active class to the clicked button
                 e.target.classList.add('active');
-                // 3. Run the filter
                 filterProducts();
             });
         });
     }
 
     // ==========================================
-    // 2. AJAX ENQUIRY FORM SIMULATION (Enquiry Page)
+    // 2. ENQUIRY FORM (EmailJS Integration)
     // ==========================================
     const enquiryForm = document.getElementById('enquiryForm');
     if (enquiryForm) {
@@ -63,84 +54,102 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = "Processing...";
             btn.disabled = true;
 
-            setTimeout(() => { 
-                let cost = "Varies", avail = "Contact us";
-                if (service === 'repair') { cost = "R500 - R1500"; avail = "Next 2 business days"; }
-                if (service === 'custom-build') { cost = "R5000+"; avail = "3-5 business days"; }
+            // Calculate cost and availability
+            let cost = "Varies", avail = "Contact us";
+            if (service === 'repair') { cost = "R500 - R1500"; avail = "Next 2 business days"; }
+            if (service === 'custom-build') { cost = "R5000+"; avail = "3-5 business days"; }
+            if (service === 'upgrade') { cost = "From R1500"; avail = "Next business day"; }
+            if (service === 'maintenance') { cost = "R300"; avail = "Next 2 business days"; }
 
-                enquiryForm.style.display = 'none';
-                responseBox.style.display = 'block';
-                responseBox.innerHTML = `
-                    <h3>Enquiry Processed</h3>
-                    <p><strong>Estimated Cost:</strong> ${cost}</p>
-                    <p><strong>Availability:</strong> ${avail}</p>
-                    <p>We will be in touch shortly!</p>
-                `;
-                responseBox.scrollIntoView({ behavior: 'smooth' });
-            }, 1000);
+            const serviceID = 'service_q5r8kmb';
+            const templateID = 'template_657jati'; // ENQUIRY TEMPLATE ID
+
+            // Pass the calculated cost and availability along with the form data
+            const templateParams = {
+                service: service,
+                estimated_cost: cost,
+                availability: avail
+            };
+
+            emailjs.sendForm(serviceID, templateID, this, templateParams)
+                .then(() => {
+                    enquiryForm.style.display = 'none';
+                    responseBox.style.display = 'block';
+                    responseBox.innerHTML = `
+                        <h3>Enquiry Sent Successfully</h3>
+                        <p><strong>Estimated Cost:</strong> ${cost}</p>
+                        <p><strong>Availability:</strong> ${avail}</p>
+                        <p>We have received your request and will confirm your booking via email shortly.</p>
+                    `;
+                    responseBox.scrollIntoView({ behavior: 'smooth' });
+                }, (err) => {
+                    btn.textContent = "Submit Enquiry";
+                    btn.disabled = false;
+                    alert("Failed to send the enquiry. Please try again.\n\nError: " + JSON.stringify(err));
+                });
         });
     }
 
     // ==========================================
-    // 3. AJAX CONTACT FORM SIMULATION (Contact Page)
+    // 3. CONTACT FORM (EmailJS Integration)
     // ==========================================
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const message = document.getElementById('contactMessage').value;
             const btn = this.querySelector('button');
             const responseBox = document.getElementById('contactResponse');
 
             btn.textContent = "Sending...";
             btn.disabled = true;
 
-            setTimeout(() => {
-                const mailto = `mailto:jingotech@gmail.com?subject=Contact from ${name}&body=${message}%0D%0AFrom: ${email}`;
-                window.location.href = mailto;
+            const serviceID = 'service_q5r8kmb';
+            const templateID = 'template_8pq5cum'; // CONTACT TEMPLATE ID
 
-                contactForm.style.display = 'none';
-                responseBox.style.display = 'block';
-                responseBox.innerHTML = `
-                    <h3>Thank you, ${name}!</h3>
-                    <p>Your message is ready. Your email app should open shortly.</p>
-                `;
-                responseBox.scrollIntoView({ behavior: 'smooth' });
-            }, 1000);
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    contactForm.style.display = 'none';
+                    responseBox.style.display = 'block';
+                    responseBox.innerHTML = `
+                        <h3>Thank you!</h3>
+                        <p>Your message has been sent successfully. We will get back to you shortly.</p>
+                    `;
+                    responseBox.scrollIntoView({ behavior: 'smooth' });
+                }, (err) => {
+                    btn.textContent = "Send Message";
+                    btn.disabled = false;
+                    alert("Failed to send the message. Please try again.\n\nError: " + JSON.stringify(err));
+                });
         });
     }
-    
+
     // ==========================================
-    // 4. GALLERY LIGHTBOX
+    // 4. GALLERY LIGHTBOX (Products Page)
     // ==========================================
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.close-lightbox');
-    // Target all images inside the product cards
     const triggers = document.querySelectorAll('.product-card img');
 
     if (lightbox && triggers.length > 0) {
         triggers.forEach(img => {
-            // Make it look clickable
             img.style.cursor = 'pointer'; 
             img.addEventListener('click', function() {
                 lightbox.style.display = 'flex';
-                lightboxImg.src = this.src; // Use the same image source
+                lightboxImg.src = this.src; 
             });
         });
 
-        closeBtn.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
+        if(closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                lightbox.style.display = 'none';
+            });
+        }
 
-        // Close if user clicks outside the image
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 lightbox.style.display = 'none';
             }
         });
     }
-
 });
